@@ -31,11 +31,11 @@ async function keepPageAlive() {
       console.log('Mouse moved');
     }, 1000); // Move the mouse every second
 
-    // Keep the browser session active by refreshing every 5 seconds
+    // Keep the browser session active by refreshing every 5 minutes
     setInterval(async () => {
       console.log('Refreshing page...');
       await page.reload();
-    }, 5 * 1000); // 5 seconds
+    }, 5 * 60 * 1000); // 5 minutes (5 * 60 * 1000 milliseconds)
 
   } catch (error) {
     console.error('Error while keeping page alive:', error);
@@ -55,16 +55,16 @@ app.get('/', (req, res) => {
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Website Always Running</title>
       <script>
-        // Refresh the page every 5 seconds on the client-side
+        // Refresh the page every 5 minutes on the client-side
         setInterval(() => {
           window.location.reload();
-        }, 5 * 1000); // 5 seconds
+        }, 5 * 60 * 1000); // 5 minutes (5 * 60 * 1000 milliseconds)
       </script>
     </head>
     <body>
       <h1>Your Website is Always Running!</h1>
       <p>We are keeping the page <a href="https://xpressauth-c83s.onrender.com/" target="_blank">https://xpressauth-c83s.onrender.com/</a> always alive.</p>
-      <p>The page is refreshed every 5 seconds to keep it active.</p>
+      <p>The page is refreshed every 5 minutes to keep it active.</p>
     </body>
     </html>
   `);
